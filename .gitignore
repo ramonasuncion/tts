@@ -1,0 +1,4 @@
+.venv
+mod_blocklist.txt
+config.yaml
+secrets.yaml
