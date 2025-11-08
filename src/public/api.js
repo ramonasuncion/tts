@@ -17,6 +17,19 @@ async function jpost(url, body) {
   return await r.json();
 }
 
+async function postBinary(url, body) {
+  const r = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+    ...cred,
+  });
+  if (!r.ok) throw new Error(`POST ${url} -> ${r.status}`);
+  const arrayBuffer = await r.arrayBuffer();
+  const ct = r.headers.get("content-type") || "application/octet-stream";
+  return { arrayBuffer, contentType: ct };
+}
+
 async function jdel(url) {
   const r = await fetch(url, { method: "DELETE", ...cred });
   if (!r.ok) throw new Error(`DELETE ${url} -> ${r.status}`);
@@ -35,8 +48,8 @@ export const api = {
     add: (name, voice) => jpost("/api/aliases", { name, voice }),
   },
   sounds: () => jget("/api/sounds"),
-  tts: (body) => jpost("/api/tts", body),
-  ttsBatch: (body) => jpost("/api/tts_batch", body),
+  tts: (body) => postBinary("/api/tts", body),
+  ttsBatch: (body) => postBinary("/api/tts_batch", body),
   queue: {
     peek: () => jget("/api/peek"),
     del: (id) => jdel(`/api/queue/${encodeURIComponent(id)}`),
