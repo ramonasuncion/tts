@@ -2,3 +2,5 @@
 mod_blocklist.txt
 config.yaml
 secrets.yaml
+datasets/
+__pycache__/
