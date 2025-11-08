@@ -1,0 +1,3 @@
+- https://community.home-assistant.io/t/collections-of-pretrainer-piper-voices/915666/1
+- https://configuration1502.rssing.com/chan-75340262/article109414.html
+- https://community.home-assistant.io/t/piper-tts-custom-voice-repository/934271
