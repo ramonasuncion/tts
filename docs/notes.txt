@@ -1,0 +1,26 @@
+-obama
+-elon
+-santa
+-brian (default)
+-news radio show
+-obiwan
+-saruman
+-gaben
+-joe
+-nixon
+-movie trailer guy
+-jfk
+
+supibot website but for this tts
+
+- add a download button
+sound boards
+- https://filme.imyfone.com/soundboards/
+
+the tts should be based on length no? like how long the tts would be?
+also maube add a skip button if it's already playing...
+
+tts.0xfa.dev/api
+tts.0xfa.dev (for page)
+
+- https://github.com/domesticatedviking/TextyMcSpeechy
