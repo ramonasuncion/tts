@@ -4,3 +4,4 @@ config.yaml
 secrets.yaml
 dataset/
 __pycache__/
+data/
