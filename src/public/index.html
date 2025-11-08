@@ -11,19 +11,19 @@
   <h1 style="display: inline;">TTS Panel</h1>
   <div id="auth">
     <input id="key_admin" type="password" autocomplete="off" placeholder="admin key" />
-    <button id="login_admin">login admin</button>
-    <button id="login_twitch" style="margin-left:8px;">login with Twitch</button>
-    <button id="logout">logout</button>
+    <button id="login_admin" data-action="login-admin">login admin</button>
+    <button id="login_twitch" data-action="login-twitch" style="margin-left:8px;">login with Twitch</button>
+    <button id="logout" data-action="logout">logout</button>
     <small id="auth_status">not logged in</small>
   </div>
 
   <div id="row">
     <label for="voices">voice/alias</label>
     <select id="voices"></select>
-    <button id="refresh">refresh</button>
+    <button id="refresh" data-action="refresh">refresh</button>
     <div id="toggles">
-      <label><input type="checkbox" id="autoplay"> autoplay</label>
-      <label><input type="checkbox" id="pollq"> queue poll</label>
+      <label><input type="checkbox" id="autoplay" data-action="toggle-autoplay"> autoplay</label>
+      <label><input type="checkbox" id="pollq" data-action="toggle-poll"> queue poll</label>
     </div>
   </div>
 
@@ -47,14 +47,14 @@
   <form id="form">
     <label for="tts">message</label>
     <textarea id="tts" rows="5" cols="90" placeholder="brian: hello or [fast] hello"></textarea>
-    <div><button id="submit" type="button" disabled>add</button></div>
+    <div><button id="submit" data-action="submit-text" type="button" disabled>add</button></div>
   </form>
 
   <div id="alias_admin" style="display:none; margin:10px 0;">
     <span class="badge">add alias (admin)</span>
     <input id="alias_name" placeholder="alias name (e.g. brian)" />
     <select id="alias_target"></select>
-    <button id="alias_add">add alias</button>
+    <button id="alias_add" data-action="alias-add">add alias</button>
   </div>
 
   <div id="token_admin" style="display:none; margin:10px 0;">
@@ -67,7 +67,7 @@
       <option value='["tts"]'>tts only (bot)</option>
       <option value='["pull"]'>pull only (overlay)</option>
     </select>
-    <button id="mint_token">mint</button>
+    <button id="mint_token" data-action="mint-token">mint</button>
     <div id="mint_result" style="margin-top:6px"></div>
   </div>
 
@@ -89,7 +89,7 @@
     </div>
     <div id="map_list" style="margin-top:8px;"></div>
     <div style="margin-top:8px;">
-      <button id="oauth_refresh">Fetch last OAuth user</button>
+      <button id="oauth_refresh" data-action="oauth-refresh">Fetch last OAuth user</button>
       <div id="oauth_whoami" style="margin-top:6px;"></div>
     </div>
   </div>
@@ -108,7 +108,7 @@
     </thead>
     <tbody id="list"></tbody>
   </table>
-  <script src="scripts.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 
 </html>
