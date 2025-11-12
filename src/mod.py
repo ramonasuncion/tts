@@ -124,12 +124,11 @@ class SlurCensor:
             return s, 0
         return self._drop(s) if mode == "drop" else self._mask(s)
 
-    def _mask_token(src):
-        return (
-            "*" * len(src)
-            if len(src) <= 2
-            else (src[0] + "*" * (len(src) - 2) + src[-1])
-        )
+
+def _mask_token(src):
+    return (
+        "*" * len(src) if len(src) <= 2 else (src[0] + "*" * (len(src) - 2) + src[-1])
+    )
 
 
 class Moderator:
