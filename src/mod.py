@@ -32,6 +32,12 @@ _leet = {
 }
 
 
+def _mask_token(src):
+    return (
+        "*" * len(src) if len(src) <= 2 else (src[0] + "*" * (len(src) - 2) + src[-1])
+    )
+
+
 def _normalize(s):
     s = unicodedata.normalize("NFKD", s)
     return "".join(ch for ch in s if not unicodedata.combining(ch))
@@ -123,13 +129,6 @@ class SlurCensor:
         if not self.rxs:
             return s, 0
         return self._drop(s) if mode == "drop" else self._mask(s)
-
-
-def _mask_token(src):
-    return (
-        "*" * len(src) if len(src) <= 2 else (src[0] + "*" * (len(src) - 2) + src[-1])
-    )
-
 
 class Moderator:
     def __init__(self, cfg=None):
