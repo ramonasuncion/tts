@@ -2,7 +2,7 @@ import os
 import argparse
 import uvicorn
 from api import make_app
-from log import TTSLogger
+from log import configure, logger
 from config import load_cfg
 
 if __name__ == "__main__":
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     ap.add_argument("--debug", action="store_true", help="debug tts")
     a = ap.parse_args()
 
-    logger = TTSLogger(debug=a.debug)
+    configure(debug=a.debug)
     logger.info(f"debug={a.debug}")
     logger.info(f"config: {a.cfg}")
 
